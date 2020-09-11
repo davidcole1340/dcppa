@@ -4,6 +4,12 @@
 #include <spdlog/cfg/env.h>
 #include <cxxopts.hpp>
 
+extern "C" {
+    #include <opus/opus.h>
+}
+
+#include "src/OpusEncoder.hpp"
+
 cxxopts::ParseResult parseOptions(int argc, const char** argv)
 {
     cxxopts::Options options("dcppa", "opus encoder - dca format");
@@ -40,6 +46,12 @@ cxxopts::ParseResult parseOptions(int argc, const char** argv)
 int main(int argc, const char** argv)
 {
     cxxopts::ParseResult options = parseOptions(argc, argv);
+
+    try {
+        dcppa::Encoder *encoder = new dcppa::Encoder(OPUS_APPLICATION_AUDIO, 48000, 20, 2);
+    } catch (const char* err) {
+        spdlog::error("error creating opus encoder: {}", err);
+    }
 
     return 0;
 }

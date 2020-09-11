@@ -7,6 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 find_package(spdlog REQUIRED)
 
-add_executable(dcppa main.cpp)
+file(GLOB_RECURSE SOURCES src/*.cpp)
+add_executable(dcppa main.cpp ${SOURCES})
 
 target_link_libraries(dcppa spdlog::spdlog)
+target_link_libraries(dcppa opus)
