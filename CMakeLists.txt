@@ -7,5 +7,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 find_package(spdlog REQUIRED)
 
-add_executable(dcapp main.cpp)
-target_link_libraries(dcapp PRIVATE spdlog::spdlog)
+add_executable(dcppa main.cpp)
+
+target_link_libraries(dcppa spdlog::spdlog)
