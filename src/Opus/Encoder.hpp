@@ -1,5 +1,13 @@
+/**
+ * dcppa - opus encoder
+ * 
+ * Author: David Cole
+ */
+
 #ifndef OPUS_ENCODER_HPP
 #define OPUS_ENCODER_HPP
+
+#include <string>
 
 extern "C" {
     #include <opus/opus.h>
@@ -12,13 +20,8 @@ namespace dcppa::Opus
     private:
         OpusEncoder *enc;
 
-        int application;
-        int sampleRate;
-        int frameSize;
-        int channels;
-
     public:
-        Encoder(int application, int sampleRate, int frameSize, int channels);
+        Encoder(std::string application, int sampleRate, int frameSize, int channels);
 
         ~Encoder();
     };
