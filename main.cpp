@@ -8,7 +8,7 @@ extern "C" {
     #include <opus/opus.h>
 }
 
-#include "src/OpusEncoder.hpp"
+#include "src/Opus/Encoder.hpp"
 
 cxxopts::ParseResult parseOptions(int argc, const char** argv)
 {
@@ -48,7 +48,7 @@ int main(int argc, const char** argv)
     cxxopts::ParseResult options = parseOptions(argc, argv);
 
     try {
-        dcppa::Encoder *encoder = new dcppa::Encoder(OPUS_APPLICATION_AUDIO, 48000, 20, 2);
+        dcppa::Opus::Encoder *encoder = new dcppa::Opus::Encoder(OPUS_APPLICATION_AUDIO, 48000, 20, 2);
     } catch (const char* err) {
         spdlog::error("error creating opus encoder: {}", err);
     }

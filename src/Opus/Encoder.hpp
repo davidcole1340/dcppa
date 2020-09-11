@@ -5,7 +5,7 @@ extern "C" {
     #include <opus/opus.h>
 }
 
-namespace dcppa
+namespace dcppa::Opus
 {
     class Encoder
     {

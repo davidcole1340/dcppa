@@ -1,6 +1,6 @@
-#include "OpusEncoder.hpp"
+#include "Encoder.hpp"
 
-dcppa::Encoder::Encoder(int application, int sampleRate, int frameSize, int channels)
+dcppa::Opus::Encoder::Encoder(int application, int sampleRate, int frameSize, int channels)
 {
     int err;
     this->enc = opus_encoder_create(sampleRate, channels, application, &err);
@@ -10,7 +10,7 @@ dcppa::Encoder::Encoder(int application, int sampleRate, int frameSize, int chan
     }
 }
 
-dcppa::Encoder::~Encoder()
+dcppa::Opus::Encoder::~Encoder()
 {
     opus_encoder_destroy(this->enc);
 }
