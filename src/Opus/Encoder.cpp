@@ -17,7 +17,7 @@ dcppa::Opus::Encoder::Encoder(std::string application, int sampleRate, int frame
     this->enc = opus_encoder_create(sampleRate, channels, opusApplication, &err);
 
     if (err != OPUS_OK) {
-        throw opus_strerror(err);
+        throw std::runtime_error(opus_strerror(err));
     }
 }
 

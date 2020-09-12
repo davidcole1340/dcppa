@@ -8,6 +8,7 @@
 #define OPUS_ENCODER_HPP
 
 #include <string>
+#include <stdexcept>
 
 extern "C" {
     #include <opus/opus.h>

@@ -62,8 +62,8 @@ int main(int argc, const char** argv)
             options["framesize"].as<int>(),
             options["channels"].as<int>()
         );
-    } catch (const char* err) {
-        spdlog::error("error creating opus encoder: {}", err);
+    } catch (const std::runtime_error &e) {
+        spdlog::error("error creating opus encoder: {}", e.what());
     }
 
     spdlog::debug("opening input file {} and output file {}",
