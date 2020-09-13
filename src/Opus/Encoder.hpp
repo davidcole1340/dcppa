@@ -9,6 +9,12 @@
 
 #include <string>
 #include <stdexcept>
+#include <istream>
+#include <ostream>
+#include <fstream>
+#include <stdint.h>
+
+#include <iostream>
 
 extern "C" {
     #include <opus/opus.h>
@@ -20,9 +26,16 @@ namespace dcppa::Opus
     {
     private:
         OpusEncoder *enc;
+        int frameSize;
+        int channels;
+        int sampleRate;
+        int maxBytes;
 
     public:
         Encoder(std::string application, int sampleRate, int frameSize, int channels);
+
+        void setBitrate(int bitrate);
+        void encode(std::istream *input, std::ostream *output);
 
         ~Encoder();
     };
